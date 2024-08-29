@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" th:fragment="parent(content, title, script)" xmlns:th="http://www.thymeleaf.org">
+<link href="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.css"  rel="stylesheet" />
+<link th:href="@{/output.css}" rel="stylesheet" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:replace = "${title}">SCM</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.5.1/flowbite.min.js"></script> -->
+</head>
+<body class="bg-gray-100 dark:text-white dark:bg-gray-900" >
+    <!-- Common Header -->
+
+     <div th:replace = "~{navBar::navBar}"></div>
+     <div>
+        
+        <div th:replace = "${content}" style="margin-left: 17rem; padding-top: 1rem;"></div>
+     </div>
+
+     <!-- <footer class="p-4"> This is footer</footer> -->
+
+<script th:src="@{'/js/theme.js'}"></script>
+<script th:replace="${script}" th:if="${script != null}"></script>
+</body>
+</html>

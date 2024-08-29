@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html th:replace = "~{base :: parent(~{::#container}, ~{::title}, ~{::script})}">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Contacts</title>
+
+</head>
+<body>
+    <div id="container" style="margin-left: 16rem; padding-top: 6rem;">
+        <div th:if="${loggedInUser}">
+            <div th:replace = "~{user/sidebar :: sidebar(pageSize=${pageSize})}"></div>
+        </div> 
+        <div>
+            <h1 class="text-5xl mb-6 text-center">All Your Contacts</h1>
+            <div th:replace = "~{user/table :: table}"></div>            
+            <div th:replace = "~{user/contact_modal :: contact_modal}"></div>            
+    </div>
+    
+    <script th:src="@{'/js/modal.js'}"></script>
+</body>
+</html>
